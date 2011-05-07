@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JSHinter</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="jshint/jshint.js"></script>
+    <script src="chinter.js"></script>
+</head>
+<body>
+	<p>Insert a JS file path</p>
+    <form id="jshinter">
+		<input type='text' id="jsfile" name="jsfile" />
+		<input type="submit" value="Test Code" />
+	</form>
+	
+	<script>
+		jQuery(function($){
+			$('#jshinter').submit( function(ev) {
+				ev.preventDefault();
+				var jsfile = $('#jsfile').val();
+				
+				if (jsfile) {
+					cHinter(jsfile);
+				}
+			});
+		});
+	</script>
+</body>
+</html>
+
