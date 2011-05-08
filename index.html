@@ -3,28 +3,46 @@
 <head>
     <meta charset="utf-8">
     <title>JSHinter</title>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+	<style>
+		#jscode {
+			display: block;
+			padding: 6px;
+			border-radius: 8px;
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+			width: 600px;
+			height: 300px;
+		}
+	</style>
+
 	<script src="jshint/jshint.js"></script>
     <script src="chinter.js"></script>
 </head>
 <body>
-	<p>Insert a JS file path</p>
+	<p>Console JSHinter - insert JS Code</p>
     <form id="jshinter">
-		<input type='text' id="jsfile" name="jsfile" />
+		<textarea id="jscode" name="jsfile" required>function(foo) {
+		    var i = -1
+		    var str
+
+		    for (var i = 0; i < 4; i++) {
+		        debugger;
+		        str += i;
+		    }
+		}()</textarea>
 		<input type="submit" value="Test Code" />
 	</form>
 	
 	<script>
-		jQuery(function($){
-			$('#jshinter').submit( function(ev) {
-				ev.preventDefault();
-				var jsfile = $('#jsfile').val();
-				
-				if (jsfile) {
-					cHinter(jsfile);
-				}
-			});
-		});
+		var jshinter = document.getElementById('jshinter');
+		
+		jshinter.onsubmit = function(event) {
+			event.preventDefault();
+			var jscode = document.getElementById('jscode');
+			cHinter(jscode.value);			
+			return false;
+		};
 	</script>
 </body>
 </html>

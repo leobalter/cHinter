@@ -4,4 +4,5 @@
     if (x === undefined) {
         throw Error("NOWAI");
     }
+
 })();
