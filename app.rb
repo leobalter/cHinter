@@ -1,9 +1,9 @@
+require 'rubygems'
 require 'sinatra'
-
-set :public, File.dirname(__FILE__) + '/static'
-
 require 'open-uri'
 require 'net/http'
+
+set :public, File.dirname(__FILE__) + '/static'
 
 get '/' do
   erb :index
