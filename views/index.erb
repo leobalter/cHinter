@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JSHinter</title>
+
+	<style>
+		#jscode {
+			display: block;
+			padding: 6px;
+			border-radius: 8px;
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+			width: 600px;
+			height: 300px;
+		}
+	</style>
+
+	<script src="jshint/jshint.js"></script>
+    <script src="chinter.js"></script>
+</head>
+<body>
+	<p>Console JSHinter - insert JS Code</p>
+    <form id="jshinter">
+		<textarea id="jscode" name="jsfile" required>function(foo) {
+		    var i = -1
+		    var str
+
+		    for (var i = 0; i < 4; i++) {
+		        debugger;
+		        str += i;
+		    }
+		}()</textarea>
+		<input type="submit" value="Test Code" />
+	</form>
+	
+	<script>
+		var jshinter = document.getElementById('jshinter');
+		
+		jshinter.onsubmit = function(event) {
+			event.preventDefault();
+			var jscode = document.getElementById('jscode');
+			cHinter(jscode.value);			
+			return false;
+		};
+	</script>
+</body>
+</html>
+
