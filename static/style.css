@@ -98,6 +98,7 @@ p {
 	border: 1px solid #ccc;
 	width: 706px;
 	height: 300px;
+	font-family: monospace,monospace;
 }
 
 #jshinter {
