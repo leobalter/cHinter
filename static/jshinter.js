@@ -34,6 +34,6 @@
             }
         }
         
-        return validateFile(sourceText);
+        return validateFile(sourceText, options);
     };
 })(window, undefined);
