@@ -2,6 +2,7 @@ require 'rubygems'
 require 'sinatra'
 require 'open-uri'
 require 'net/http'
+require 'erb'
 
 set :public, File.dirname(__FILE__) + '/static'
 
