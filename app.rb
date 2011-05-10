@@ -21,14 +21,11 @@ get '/file/*' do |file|
 
     response = Net::HTTP.get_response(URI.parse(file))
     case response
-    when Net::HTTPSuccess     then response
-    when Net::HTTPRedirection then fetch(response['location'], limit - 1)
+      when Net::HTTPSuccess     then response.body
+      when Net::HTTPRedirection then fetch(response['location'], limit - 1)
     else
-      response.error!
+      response.code
     end
   end
-
-  fileContent = fetch(file)
-  
-  fileContent
+  fetch(file)
 end
