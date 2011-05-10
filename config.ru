@@ -1,2 +1,2 @@
-require './app'
+require 'jshinter'
 run Sinatra::Application
