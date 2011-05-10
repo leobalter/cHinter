@@ -128,17 +128,27 @@
 jQuery(function($) {
    var $jshinter = $('#jshinter'),
         $loadJS = $('#loadExternalUrl');
-        
+   
+   // unlock site inputs     
    $(document).find('input, textarea').attr('disabled', false);
+   
+   // set lined textarea and set a width quick fix
    $('#jscode').linedtextarea().width('600px');
    
    $jshinter.submit(function(ev) {
        ev.preventDefault();
-       var jscode = $('#jscode').val();
-       JSHinter(jscode);
+       var jscode = $('#jscode').val(), options = {};
+       
+       // mark checked options
+       $("#jsOptions :checkbox").each(function () {
+           var $this = $(this);
+           options[$this.attr("name")] = $this.is(':checked');
+       });
+       
+       JSHinter(jscode, options);
    });
    
-   $('#loadExternalUrl').submit(function(ev) {
+   $loadJS.submit(function(ev) {
        ev.preventDefault();
        var jsurl = $('#file').val();
       
@@ -146,6 +156,7 @@ jQuery(function($) {
            dataType: 'text',
            success: function(data) {
                $('#jscode').val(data);
+               $jshinter.submit();
            }
        });
    });

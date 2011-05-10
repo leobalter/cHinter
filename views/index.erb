@@ -20,10 +20,11 @@
 <body>
     <div id="container">
       <header>
-          <h1>Console JSHinter - insert JS Code</h1>
+          <h1>JSHinter</h1>
       </header>
       <div id="main" role="main">
           <form id="jshinter" action="javascript:void(0);">
+              <h2>Copy and Paste your code</h2>
       		<textarea id="jscode" name="jsfile" required disabled>function(foo) {
     var i = -1
     var str
@@ -34,6 +35,171 @@
     }
 }()</textarea>
       		<input type="submit" value="Test Code" disabled />
+      		
+      		<h2>JSHint Options</h2>
+      		<div id="jsOptions">
+      		    
+      		    <p>
+      		        <input type="checkbox" name="asi" id="option_asi">
+      		        <label for="option_asi"><strong>asi</strong>: if automatic semicolon insertion should be tolerated</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="bitwise" id="option_bitwise">
+      		        <label for="option_bitwise"><strong>bitwise</strong>: if bitwise operators should not be allowed</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="boss" id="option_boss">
+      		        <label for="option_boss"><strong>boss</strong>: if advanced usage of assignments should be allowed</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="browser" id="option_browser">
+      		        <label for="option_browser"><strong>browser</strong>: if the standard browser globals should be predefined</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="couch" id="option_couch">
+      		        <label for="option_couch"><strong>couch</strong>: if CouchDB globals should be predefined</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="curly" id="option_curly">
+      		        <label for="option_curly"><strong>curly</strong>: if curly braces around blocks should be required (even in if/for/while)</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="debug" id="option_debug">
+      		        <label for="option_debug"><strong>debug</strong>: if debugger statements should be allowed</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="devel" id="option_devel">
+      		        <label for="option_devel"><strong>devel</strong>: if logging globals should be predefined (console, alert, etc.)</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="eqeqeq" id="option_eqeqeq">
+      		        <label for="option_eqeqeq"><strong>eqeqeq</strong>: if === should be required</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="eqnull" id="option_eqnull">
+      		        <label for="option_eqnull"><strong>eqnull</strong>: if == null comparisons should be tolerated</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="es5" id="option_es5">
+      		        <label for="option_es5"><strong>es5</strong>: if ES5 syntax should be allowed</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="evil" id="option_evil">
+      		        <label for="option_evil"><strong>evil</strong>: if eval should be allowed</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="expr" id="option_expr">
+      		        <label for="option_expr"><strong>expr</strong>: if ExpressionStatement should be allowed as Programs</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="forin" id="option_forin">
+      		        <label for="option_forin"><strong>forin</strong>: if for in statements must filter</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="globalstrict" id="option_globalstrict">
+      		        <label for="option_globalstrict"><strong>globalstrict</strong>: if global "use strict"; should be allowed (also enables 'strict')</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="immed" id="option_immed">
+      		        <label for="option_immed"><strong>immed</strong>: if immediate invocations must be wrapped in parens</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="jquery" id="option_jquery">
+      		        <label for="option_jquery"><strong>jquery</strong>: if jQuery globals should be predefined</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="latedef" id="option_latedef">
+      		        <label for="option_latedef"><strong>latedef</strong>: if the use before definition should not be tolerated</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="laxbreak" id="option_laxbreak">
+      		        <label for="option_laxbreak"><strong>laxbreak</strong>: if line breaks should not be checked</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="loopfunc" id="option_loopfunc">
+      		        <label for="option_loopfunc"><strong>loopfunc</strong>: if functions should be allowed to be defined within loops</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="mootools" id="option_mootools">
+      		        <label for="option_mootools"><strong>mootools</strong>: if MooTools globals should be predefined</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="newcap" id="option_newcap">
+      		        <label for="option_newcap"><strong>newcap</strong>: if constructor names must be capitalized</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="noarg" id="option_noarg">
+      		        <label for="option_noarg"><strong>noarg</strong>: if arguments.caller and arguments.callee should be disallowed</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="node" id="option_node">
+      		        <label for="option_node"><strong>node</strong>: if the Node.js environment globals should be predefined</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="noempty" id="option_noempty">
+      		        <label for="option_noempty"><strong>noempty</strong>: if empty blocks should be disallowed</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="nonew" id="option_nonew">
+      		        <label for="option_nonew"><strong>nonew</strong>: if using `new` for side-effects should be disallowed</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="nomen" id="option_nomen">
+      		        <label for="option_nomen"><strong>nomen</strong>: if names should be checked</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="onevar" id="option_onevar">
+      		        <label for="option_onevar"><strong>onevar</strong>: if only one var statement per function should be allowed</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="passfail" id="option_passfail">
+      		        <label for="option_passfail"><strong>passfail</strong>: if the scan should stop on first error</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="plusplus" id="option_plusplus">
+      		        <label for="option_plusplus"><strong>plusplus</strong>: if increment/decrement should not be allowed</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="prototypejs" id="option_prototypejs">
+      		        <label for="option_prototypejs"><strong>prototypejs</strong>: if Prototype and Scriptaculous globals shoudl be predefined</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="regexp" id="option_regexp">
+      		        <label for="option_regexp"><strong>regexp</strong>: if the . should not be allowed in regexp literals</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="rhino" id="option_rhino">
+      		        <label for="option_rhino"><strong>rhino</strong>: if the Rhino environment globals should be predefined</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="undef" id="option_undef">
+      		        <label for="option_undef"><strong>undef</strong>: if variables should be declared before used</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="shadow" id="option_shadow">
+      		        <label for="option_shadow"><strong>shadow</strong>: if variable shadowing should be tolerated</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="strict" id="option_strict">
+      		        <label for="option_strict"><strong>strict</strong>: require the "use strict"; pragma</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="sub" id="option_sub">
+      		        <label for="option_sub"><strong>sub</strong>: if all forms of subscript notation are tolerated</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="supernew" id="option_supernew">
+      		        <label for="option_supernew"><strong>supernew</strong>: if `new function () { ... };` and `new Object;` should be tolerated</label>
+      		    </p>
+      		    <p>
+      		        <input type="checkbox" name="white" id="option_white">
+      		        <label for="option_white"><strong>white</strong>: if strict whitespace rules apply</label>
+      		    </p>
+    
+                           
+
+
+      		</div>
       	</form>
       	
       	<p>You can also insert a external javascript url to load it here</p>

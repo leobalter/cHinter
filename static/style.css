@@ -81,6 +81,15 @@ a:hover { color: #036; }
  * Author: Leo Balter
  */
 
+h1 {
+    font-size: 22px;
+}
+
+h2 {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
 #container {
     width: 720px;
     margin: 10px auto;
@@ -123,8 +132,17 @@ p {
     padding: 14px 4px;
 }
 
-#JSHintErrors {
-    color: #FF0000;
+#JSHintErrors code {
+    color: red;
+    background: ececec;
+    padding: 2px 8px;
+    font-size: 12px;
+}
+
+#JSHintErrors li {
+    border-bottom: 1px dotted #CCC;
+    margin-bottom: 4px;
+    line-height: 28px;
 }
 
 #JSHintResult {
@@ -135,12 +153,35 @@ p {
     color: blue;
 }
 
-#JSHintSuccess {
+#JSHintFail {
     color: red;
 }
 
+#jsOptions input {
+    height: 28px;
+}
 
+#jsOptions label {
+    line-height: 28px;
+}
 
+#jshinter input[type="submit"] {
+    margin-bottom: 10px;
+}
+
+#jsOptions {
+    height: 250px;
+    overflow-y: auto;
+    border: 1px solid #CCC;
+    border-radius: 8px;
+    padding: 10px;
+    width: 668px;
+}
+
+#jsOptions p {
+    margin-bottom: 4px;
+    border-bottom: 1px #eee dotted;
+}
 
 
 .linedwrap {
