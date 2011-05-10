@@ -1,40 +1,35 @@
 (function(window) {
-    window.cHinter = function(sourceText , options) {
+    window.JSHinter = function(sourceText , options) {
         function validateFile(source) {
             var i, len, err,
                 result = JSHINT(source, options);
+                
+            $('#JSHintErrors').empty();
 
-            jsglobals();
-            
             if (result) {
-                return console.log('JSHint passed OK!');
+                return $('#JSHintResult').html('<p id="JSHintSuccess">JSHint passed ok!</p>');
             }
             
+            $('#JSHintResult').html('<p id="JSHintError">Your code is not great yet!</p>');
             jsfail();
         }
         
         function jsfail() {
+            var JSErrors = $('#JSHintErrors'), JSErrorsText = '';
+            JSErrors.empty();
+            
             for (i = 0, len = JSHINT.errors.length; i < len; i++) {
                 err = JSHINT.errors[i];
                 if (!err) {
                     continue;
                 }
 
-                console.error(err.reason + " on line " + err.line + ", character " + err.character);
-            }
-        }
-        
-        function jsglobals() {
-            if (! JSHINT.data().implieds ){
-                return;
-            }
-            
-            var i, globals = JSHINT.data().implieds;
-            for (i = 0, len = globals.length; i < len; i++) {
-                console.log('Globals used: "' + globals[i].name + '" on lines ' + globals[i].line.join(','));
+                JSErrorsText = err.reason + " on line " + err.line + ", character " + err.character;
+                
+                $('<li />').appendTo(JSErrors).text(JSErrorsText);
             }
         }
         
         return validateFile(sourceText);
-    };  
+    };
 })(window, undefined);

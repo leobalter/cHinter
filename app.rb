@@ -9,7 +9,7 @@ get '/' do
   erb :index
 end
 
-get '/file/*' do |file|
+get '/file/*.js' do |file|
   def fetch(file, limit = 10)
     # You should choose better exception.
     raise ArgumentError, 'HTTP redirect too deep' if limit == 0
@@ -22,5 +22,5 @@ get '/file/*' do |file|
       response.code
     end
   end
-  fetch(file)
+  fetch(file + '.js')
 end
