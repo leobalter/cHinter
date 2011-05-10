@@ -183,6 +183,11 @@ p {
     border-bottom: 1px #eee dotted;
 }
 
+footer {
+    margin-top: 30px;
+    text-align: center;
+}
+
 
 .linedwrap {
 	border: 1px solid #c0c0c0;
