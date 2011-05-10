@@ -2,16 +2,11 @@ require 'sinatra'
 
 set :public, File.dirname(__FILE__) + '/static'
 
-require 'rubygems'
 require 'open-uri'
 require 'net/http'
 
 get '/' do
   erb :index
-end
-
-get '/js/*.js' do
-  params[:splat]
 end
 
 get '/file/*' do |file|
